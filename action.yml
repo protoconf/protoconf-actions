@@ -25,9 +25,10 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    STORE_ADDRESS: ${{ inputs.store_address }}
   args:
     - ${{ inputs.store_type }}
-    - ${{ inputs.store_address }}
     - ${{ inputs.prefix }}
     - ${{ inputs.delete }}
     - ${{ inputs.changes_only }}

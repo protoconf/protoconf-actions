@@ -2,12 +2,16 @@
 set -e
 set -x
 
+if [ -z "${STORE_ADDRESS}" ]; then
+  echo "STORE_ADDRESS is unset"
+  exit 1
+fi
+
 echo "VARS: $*"
 STORE_TYPE=$1
-STORE_ADDRESS=$2
-PREFIX=$3
-SHOULD_DELETE=$4
-CHANGES_ONLY=$5
+PREFIX=$2
+SHOULD_DELETE=$3
+CHANGES_ONLY=$4
 export GIT_TERMINAL_PROMPT=0
 
 if [ "${CHANGES_ONLY}" == "true" ]; then
