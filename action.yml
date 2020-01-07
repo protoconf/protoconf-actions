@@ -12,7 +12,7 @@ inputs:
     default: ''
   prefix:
     description: 'Where should the change be stored'
-    required: false
+    required: true
     default: ''
   delete:
     description: 'Delete files from store'
