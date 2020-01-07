@@ -1,0 +1,36 @@
+name: 'Protoconf Insert Action'
+author: 'Protoconf'
+description: 'Insert latest protoconf changes to store'
+inputs:
+  store_type:
+    description: 'etcd/consul/zookeeper'
+    required: true
+    default: ''
+  store_address:
+    description: 'Address of the kv store'
+    required: true
+    default: ''
+  prefix:
+    description: 'Where should the change be stored'
+    required: false
+    default: ''
+  delete:
+    description: 'Delete files from store'
+    required: false
+    default: false
+  changes_only:
+    description: 'Whether to insert all keys or only keys which had changes'
+    required: false
+    default: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.store_type }}
+    - ${{ inputs.store_address }}
+    - ${{ inputs.prefix }}
+    - ${{ inputs.delete }}
+    - ${{ inputs.changes_only }}
+branding:
+  icon: 'box'
+  color: 'green'
