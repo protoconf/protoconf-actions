@@ -3,4 +3,4 @@ FROM ubuntu:latest
 
 COPY --from=protoconf /app/cmd/protoconf/protoconf /protoconf
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
