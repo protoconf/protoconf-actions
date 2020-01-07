@@ -24,8 +24,8 @@ if [ "${SHOULD_DELETE}" == "true" ]; then
 fi
 
 echo $CONFIGS_TO_INSERT | xargs /protoconf insert \
-  -store ${STORE_TYPE} \
-  -address ${STORE_ADDRESS} \
-  -prefix ${PREFIX} \
+  -store "${STORE_TYPE}" \
+  -store-address "${STORE_ADDRESS}" \
+  -prefix "${PREFIX}" \
   ${DELETE} \
   "$GITHUB_WORKSPACE"
