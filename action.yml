@@ -38,6 +38,7 @@ runs:
     - ${{ inputs.prefix }}
     - ${{ inputs.delete }}
     - ${{ inputs.changes_only }}
+    - ${{ inputs.bulk_size }}
 branding:
   icon: 'box'
   color: 'green'
