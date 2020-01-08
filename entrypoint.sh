@@ -9,7 +9,7 @@ fi
 
 echo "VARS: $*"
 STORE_TYPE=$1
-PREFIX=$2
+PREFIX=$(basename $2)
 SHOULD_DELETE=$3
 CHANGES_ONLY=$4
 BULK_SIZE=$5
