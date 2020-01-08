@@ -12,6 +12,8 @@ STORE_TYPE=$1
 PREFIX=$2
 SHOULD_DELETE=$3
 CHANGES_ONLY=$4
+BULK_SIZE=$5
+
 export GIT_TERMINAL_PROMPT=0
 
 if [ "${CHANGES_ONLY}" == "true" ]; then
@@ -27,7 +29,7 @@ if [ "${SHOULD_DELETE}" == "true" ]; then
   DELETE="-d"
 fi
 
-echo $CONFIGS_TO_INSERT | xargs /protoconf insert \
+echo $CONFIGS_TO_INSERT | xargs -n${BULK_SIZE} /protoconf insert \
   -store "${STORE_TYPE}" \
   -store-address "${STORE_ADDRESS}" \
   -prefix "${PREFIX}/" \

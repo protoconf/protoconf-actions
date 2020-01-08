@@ -22,6 +22,10 @@ inputs:
     description: 'Whether to insert all keys or only keys which had changes'
     required: false
     default: true
+  bulk_size:
+    description: 'The bulk size to pass for xargs'
+    required: false
+    default: 50
 runs:
   using: 'docker'
   image: 'Dockerfile'
