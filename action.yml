@@ -26,13 +26,21 @@ inputs:
     description: 'The bulk size to pass for xargs'
     required: false
     default: 50
+  before_commit:
+    description: 'The base commit to calculate changes from'
+    required: false
+    default: 'HEAD~1'
+  after_commit:
+    description: 'The new head'
+    required: false
+    default: 'HEAD'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
     STORE_ADDRESS: ${{ inputs.store_address }}
-    BEFORE_COMMIT: ${{ github.event.before }}
-    AFTER_COMMIT: ${{ github.event.after }}
+    BEFORE_COMMIT: ${{ inputs.before_commit }}
+    AFTER_COMMIT: ${{ inputs.after_commit }}
   args:
     - ${{ inputs.store_type }}
     - ${{ inputs.prefix }}
