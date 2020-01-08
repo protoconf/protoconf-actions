@@ -17,7 +17,7 @@ BULK_SIZE=$5
 export GIT_TERMINAL_PROMPT=0
 
 if [ "${CHANGES_ONLY}" == "true" ]; then
-  CONFIGS_TO_INSERT=$(git diff --name-only --diff-filter=ACMR HEAD~1 HEAD | sed -n 's/^materialized_config\///p')
+  CONFIGS_TO_INSERT=$(git diff --name-only --diff-filter=ACMR ${BEFORE_COMMIT:-HEAD} ${AFTER_COMMIT:-HEAD~1} | sed -n 's/^materialized_config\///p')
 else
   CONFIGS_TO_INSERT=$(find . -name *.materialized_JSON | sed -n 's/^.\/materialized_config\///p')
 fi

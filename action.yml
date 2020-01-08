@@ -31,6 +31,8 @@ runs:
   image: 'Dockerfile'
   env:
     STORE_ADDRESS: ${{ inputs.store_address }}
+    BEFORE_COMMIT: ${{ github.event.before }}
+    AFTER_COMMIT: ${{ github.event.after }}
   args:
     - ${{ inputs.store_type }}
     - ${{ inputs.prefix }}
